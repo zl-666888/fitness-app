@@ -1,0 +1,16 @@
+<view class="p-20" wx:if="{{stats}}">
+  <view class="card stats-grid">
+    <view class="stat-card"><view class="sc-value text-primary">{{stats.totalDays || 0}}</view><view class="sc-label">累计打卡(天)</view></view>
+    <view class="stat-card"><view class="sc-value text-accent">{{stats.consecutiveDays || 0}}</view><view class="sc-label">连续打卡(天)</view></view>
+    <view class="stat-card"><view class="sc-value">{{stats.currentMonthDays || 0}}</view><view class="sc-label">本月打卡(天)</view></view>
+    <view class="stat-card"><view class="sc-value">{{stats.totalDuration || 0}}</view><view class="sc-label">总运动(分钟)</view></view>
+    <view class="stat-card"><view class="sc-value">{{stats.totalCalories || 0}}</view><view class="sc-label">总消耗(kcal)</view></view>
+  </view>
+  <view class="card mt-20">
+    <view class="section-title">打卡日期记录</view>
+    <view class="flex flex-wrap gap-10" wx:if="{{stats.checkinDates && stats.checkinDates.length > 0}}">
+      <text class="date-tag" wx:for="{{stats.checkinDates}}" wx:key="*this" wx:for-item="d">{{d}}</text>
+    </view>
+    <empty wx:else icon="📅" text="还没有打卡记录" />
+  </view>
+</view>

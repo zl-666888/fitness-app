@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "food-card": "/components/food-card/food-card",
+    "empty": "/components/empty/empty"
+  },
+  "navigationBarTitleText": "食物热量",
+  "enablePullDownRefresh": true
+}

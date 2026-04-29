@@ -1,0 +1,21 @@
+<view class="p-20">
+  <view class="card">
+    <view class="form-label">目标类型</view>
+    <view class="flex flex-wrap gap-20 mb-30">
+      <view class="type-item {{form.goalType === item ? 'active' : ''}}" wx:for="{{goalTypes}}" wx:key="*this" data-type="{{item}}" bindtap="onTypeTap">{{item}}</view>
+    </view>
+    <view class="form-item">
+      <view class="form-label">目标体重(kg)</view>
+      <input class="form-input" type="digit" placeholder="请输入目标体重" value="{{form.targetWeight}}" data-field="targetWeight" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">每周运动次数</view>
+      <input class="form-input" type="number" placeholder="请输入次数" value="{{form.weeklyFrequency}}" data-field="weeklyFrequency" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">提醒时间</view>
+      <input class="form-input" placeholder="如 08:00" value="{{form.reminderTime}}" data-field="reminderTime" bindinput="onInput" />
+    </view>
+    <button class="save-btn" bindtap="save">保存</button>
+  </view>
+</view>

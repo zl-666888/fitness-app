@@ -1,0 +1,4 @@
+<view class="page">
+  <video-card wx:for="{{videos}}" wx:key="id" item="{{item}}" bind:cardtap="goDetail" />
+  <empty wx:if="{{!loading && videos.length === 0}}" icon="❤️" text="暂无收藏的视频" />
+</view>

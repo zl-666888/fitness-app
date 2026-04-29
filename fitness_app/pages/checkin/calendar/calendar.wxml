@@ -1,0 +1,24 @@
+<view class="p-20">
+  <view class="month-header flex-between">
+    <view class="arrow" bindtap="prevMonth">◀</view>
+    <view class="month-title">{{year}}年{{month}}月</view>
+    <view class="arrow" bindtap="nextMonth">▶</view>
+  </view>
+
+  <view class="week-row flex">
+    <view class="week-day" wx:for="{{weekDays}}" wx:key="*this">{{item}}</view>
+  </view>
+
+  <view class="calendar-grid">
+    <view class="day-cell {{item.isToday ? 'today' : ''}}" wx:for="{{days}}" wx:key="index">
+      <text wx:if="{{item.day}}" class="day-num {{item.checked ? 'checked' : ''}}">{{item.day}}</text>
+    </view>
+  </view>
+
+  <view class="legend flex-center mt-30">
+    <view class="dot checked"></view>
+    <text class="text-sm text-secondary">已打卡</text>
+    <view class="dot today-dot"></view>
+    <text class="text-sm text-secondary">今天</text>
+  </view>
+</view>

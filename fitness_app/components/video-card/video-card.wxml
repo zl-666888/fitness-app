@@ -1,0 +1,14 @@
+<view class="card" bindtap="onTap">
+  <view class="cover cover-placeholder flex-center" wx:if="{{!item.coverUrl}}">🎬</view>
+  <image class="cover" wx:if="{{item.coverUrl}}" src="{{item.coverUrl}}" mode="aspectFill" />
+  <view class="info">
+    <view class="title">{{item.title}}</view>
+    <view class="flex-between mt-10">
+      <text class="tag tag-primary">{{item.category || '未分类'}}</text>
+      <text class="text-sm text-secondary">{{item.duration ? item.duration + '秒' : ''}}</text>
+    </view>
+    <view class="flex gap-10 mt-10" wx:if="{{item.coach}}">
+      <text class="text-sm text-secondary">教练：{{item.coach}}</text>
+    </view>
+  </view>
+</view>

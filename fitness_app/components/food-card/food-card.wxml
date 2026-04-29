@@ -1,0 +1,17 @@
+<view class="card" bindtap="onTap">
+  <view class="flex-between">
+    <view class="flex-1">
+      <view class="title">{{item.name}}</view>
+      <text class="tag tag-primary text-sm">{{item.category || '未分类'}}</text>
+    </view>
+    <view class="text-right">
+      <view class="text-accent text-xl text-bold">{{item.calories || 0}}</view>
+      <view class="text-sm text-secondary">kcal/100{{item.unit || 'g'}}</view>
+    </view>
+  </view>
+  <view class="flex gap-30 mt-20" wx:if="{{item.protein || item.fat || item.carbohydrate}}">
+    <text class="text-sm text-secondary" wx:if="{{item.protein}}">蛋白质 {{item.protein}}g</text>
+    <text class="text-sm text-secondary" wx:if="{{item.fat}}">脂肪 {{item.fat}}g</text>
+    <text class="text-sm text-secondary" wx:if="{{item.carbohydrate}}">碳水 {{item.carbohydrate}}g</text>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+<view class="card" bindtap="onTap">
+  <view class="flex-between mb-20">
+    <view class="flex" style="gap:16rpx;align-items:center" catchtap="onUserTap">
+      <view class="avatar-sm avatar-placeholder flex-center" wx:if="{{!item.avatar}}">👤</view>
+      <image class="avatar-sm" wx:if="{{item.avatar}}" src="{{item.avatar}}" mode="aspectFill" />
+      <view>
+        <view class="text-bold">{{item.nickname || '用户'}}</view>
+        <view class="text-sm text-secondary">{{item.checkinDate}}</view>
+      </view>
+    </view>
+    <view class="flex gap-10">
+      <text class="tag tag-primary">{{item.type || '运动'}}</text>
+      <text class="tag tag-light">{{item.intensityLabel}}</text>
+    </view>
+  </view>
+  <view class="mb-10" wx:if="{{item.content}}">
+    <text>{{item.content}}</text>
+  </view>
+  <view class="flex text-secondary text-sm" style="gap:30rpx" wx:if="{{item.duration || item.caloriesBurned}}">
+    <text wx:if="{{item.duration}}">⏱ {{item.duration}}分钟</text>
+    <text wx:if="{{item.caloriesBurned}}">🔥 {{item.caloriesBurned}}kcal</text>
+  </view>
+  <view class="flex-between mt-20 pt-20" style="border-top:1rpx solid var(--border)">
+    <view class="flex gap-30">
+      <view class="flex text-sm" style="gap:8rpx;align-items:center" catchtap="onLike">
+        <text class="{{item.liked ? 'text-accent' : 'text-secondary'}}">{{item.liked ? '❤️' : '🤍'}}</text>
+        <text>{{item.likeCount || 0}}</text>
+      </view>
+      <view class="flex text-sm" style="gap:8rpx;align-items:center" catchtap="onComment">
+        <text>💬</text>
+        <text>{{item.commentCount || 0}}</text>
+      </view>
+    </view>
+    <text class="text-sm text-secondary">{{item.checkinTime || ''}}</text>
+  </view>
+</view>

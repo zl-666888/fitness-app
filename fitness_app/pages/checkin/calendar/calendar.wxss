@@ -1,0 +1,14 @@
+.month-header { padding: 30rpx; background: #fff; border-radius: 16rpx; margin-bottom: 20rpx; }
+.month-title { font-size: 34rpx; font-weight: bold; }
+.arrow { font-size: 28rpx; padding: 10rpx 20rpx; }
+.week-row { background: #fff; padding: 16rpx 0; border-radius: 12rpx; margin-bottom: 4rpx; }
+.week-day { flex: 1; text-align: center; font-size: 26rpx; color: var(--text-secondary); padding: 10rpx 0; }
+.calendar-grid { display: flex; flex-wrap: wrap; background: #fff; border-radius: 12rpx; }
+.day-cell { width: 14.28%; padding: 16rpx 0; text-align: center; }
+.day-cell.today { background: #E8F5E9; border-radius: 80rpx; }
+.day-num { font-size: 28rpx; }
+.day-num.checked { color: #fff; background: var(--primary); padding: 8rpx; border-radius: 50%; display: inline-block; min-width: 44rpx; }
+.legend { gap: 10rpx; }
+.dot { width: 20rpx; height: 20rpx; border-radius: 50%; }
+.dot.checked { background: var(--primary); }
+.dot.today-dot { background: #E8F5E9; border: 2rpx solid var(--primary); }

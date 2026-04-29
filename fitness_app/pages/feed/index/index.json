@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "checkin-card": "/components/checkin-card/checkin-card",
+    "empty": "/components/empty/empty"
+  },
+  "navigationBarTitleText": "广场",
+  "enablePullDownRefresh": true
+}

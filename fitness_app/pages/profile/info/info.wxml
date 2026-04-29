@@ -1,0 +1,29 @@
+<view class="p-20">
+  <view class="card">
+    <view class="form-item">
+      <view class="form-label">昵称</view>
+      <input class="form-input" placeholder="请输入昵称" value="{{form.nickname}}" data-field="nickname" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">性别</view>
+      <view class="flex gap-20">
+        <view class="gender-item {{form.gender === 1 ? 'active' : ''}}" data-gender="1" bindtap="onGenderTap">男</view>
+        <view class="gender-item {{form.gender === 2 ? 'active' : ''}}" data-gender="2" bindtap="onGenderTap">女</view>
+        <view class="gender-item {{form.gender === 0 ? 'active' : ''}}" data-gender="0" bindtap="onGenderTap">保密</view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-label">身高(cm)</view>
+      <input class="form-input" type="digit" placeholder="请输入身高" value="{{form.height}}" data-field="height" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">体重(kg)</view>
+      <input class="form-input" type="digit" placeholder="请输入体重" value="{{form.weight}}" data-field="weight" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">手机号</view>
+      <input class="form-input" placeholder="请输入手机号" value="{{form.phone}}" data-field="phone" bindinput="onInput" />
+    </view>
+    <button class="save-btn" bindtap="save">保存</button>
+  </view>
+</view>

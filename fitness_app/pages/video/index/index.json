@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "video-card": "/components/video-card/video-card",
+    "empty": "/components/empty/empty"
+  },
+  "navigationBarTitleText": "视频",
+  "enablePullDownRefresh": true
+}

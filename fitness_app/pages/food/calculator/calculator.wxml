@@ -1,0 +1,47 @@
+<view class="p-20">
+  <view class="card">
+    <view class="section-title">🔍 选择食物</view>
+    <view class="flex gap-10 mb-20">
+      <input class="search-input flex-1" placeholder="搜索食物..." value="{{keyword}}" bindinput="onSearchInput" bindconfirm="onSearch" />
+      <button class="search-btn" bindtap="onSearch">搜索</button>
+    </view>
+    <view class="selected-food" wx:if="{{result}}">
+      已选：<text class="text-bold">{{result.foodName || foods[0].name}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">📐 输入份量</view>
+    <view class="flex" style="align-items:center;gap:20rpx">
+      <input class="amount-input" type="digit" value="{{amount}}" bindinput="onAmountChange" />
+      <text class="text-lg">g</text>
+    </view>
+  </view>
+
+  <view class="card result-card" wx:if="{{result}}">
+    <view class="section-title">📊 计算结果</view>
+    <view class="result-grid">
+      <view class="r-item"><view class="r-value text-accent">{{result.calories || 0}}</view><view class="r-label">热量(kcal)</view></view>
+      <view class="r-item"><view class="r-value">{{result.protein || 0}}</view><view class="r-label">蛋白质(g)</view></view>
+      <view class="r-item"><view class="r-value">{{result.fat || 0}}</view><view class="r-label">脂肪(g)</view></view>
+      <view class="r-item"><view class="r-value">{{result.carbohydrate || 0}}</view><view class="r-label">碳水(g)</view></view>
+    </view>
+  </view>
+
+  <view class="picker-overlay" wx:if="{{showPicker}}" bindtap="closePicker">
+    <view class="picker-sheet" catchtap="">
+      <view class="picker-title">选择食物</view>
+      <scroll-view scroll-y class="picker-list">
+        <view class="picker-item" wx:for="{{foods}}" wx:key="id" data-food="{{item}}" bindtap="selectFood">
+          <view class="flex-between">
+            <view>
+              <view class="text-bold">{{item.name}}</view>
+              <view class="text-sm text-secondary">{{item.calories || 0}} kcal/100g</view>
+            </view>
+            <text class="text-sm text-secondary">{{item.category}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+<view wx:if="{{food}}">
+  <view class="food-card card">
+    <view class="food-title">{{food.name}}</view>
+    <text class="tag tag-accent">{{food.category}}</text>
+    <view class="nutri-grid mt-30">
+      <view class="nutri-item">
+        <view class="nutri-value text-accent">{{food.calories || 0}}</view>
+        <view class="nutri-label">热量(kcal)</view>
+      </view>
+      <view class="nutri-item">
+        <view class="nutri-value">{{food.protein || 0}}</view>
+        <view class="nutri-label">蛋白质(g)</view>
+      </view>
+      <view class="nutri-item">
+        <view class="nutri-value">{{food.fat || 0}}</view>
+        <view class="nutri-label">脂肪(g)</view>
+      </view>
+      <view class="nutri-item">
+        <view class="nutri-value">{{food.carbohydrate || 0}}</view>
+        <view class="nutri-label">碳水(g)</view>
+      </view>
+    </view>
+    <view class="unit mt-20 text-center text-sm text-secondary">每 100{{food.unit || 'g'}} 含量</view>
+  </view>
+
+  <view class="card calculator">
+    <view class="section-title">热量计算器</view>
+    <view class="calc-input flex-between">
+      <text>份量</text>
+      <input class="amount-input" type="digit" value="{{amount}}" bindinput="onAmountChange" />
+      <text>{{food.unit || 'g'}}</text>
+    </view>
+    <view class="calc-result mt-20" wx:if="{{result}}">
+      <view class="result-title">计算结果</view>
+      <view class="result-grid">
+        <view class="result-item"><view class="r-value text-accent">{{result.calories || 0}}</view><view class="r-label">热量 kcal</view></view>
+        <view class="result-item"><view class="r-value">{{result.protein || 0}}</view><view class="r-label">蛋白质 g</view></view>
+        <view class="result-item"><view class="r-value">{{result.fat || 0}}</view><view class="r-label">脂肪 g</view></view>
+        <view class="result-item"><view class="r-value">{{result.carbohydrate || 0}}</view><view class="r-label">碳水 g</view></view>
+      </view>
+    </view>
+  </view>
+</view>

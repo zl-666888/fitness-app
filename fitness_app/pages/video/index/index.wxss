@@ -1,0 +1,7 @@
+.search-bar { padding: 20rpx; }
+.search-input { background: #fff; border-radius: 12rpx; padding: 16rpx 24rpx; font-size: 28rpx; height: 70rpx; }
+.filter-scroll { white-space: nowrap; padding: 0 10rpx 10rpx; }
+.filter-item { display: inline-block; padding: 10rpx 24rpx; margin: 0 6rpx; border-radius: 20rpx; background: #fff; font-size: 26rpx; }
+.filter-item.active { background: var(--primary); color: #fff; }
+.diff-scroll .filter-item.active { background: var(--accent); color: #fff; }
+.load-more { text-align: center; padding: 30rpx; color: var(--text-secondary); font-size: 26rpx; }

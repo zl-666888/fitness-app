@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="list-item flex-between" wx:for="{{list}}" wx:key="id">
+    <view class="flex" style="gap:16rpx;align-items:center">
+      <view class="avatar-sm avatar-placeholder flex-center">👤</view>
+      <text class="text-bold">用户 #{{item.followingId}}</text>
+    </view>
+    <text class="text-sm text-secondary">已关注</text>
+  </view>
+  <empty wx:if="{{list.length === 0}}" icon="👥" text="暂无关注的用户" />
+</view>

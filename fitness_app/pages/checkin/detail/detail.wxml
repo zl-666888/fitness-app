@@ -1,0 +1,18 @@
+<view class="p-20" wx:if="{{checkin}}">
+  <view class="detail-card card">
+    <view class="flex-between mb-20">
+      <text class="tag tag-primary">{{checkin.type}}</text>
+      <text class="text-sm text-secondary">{{checkin.checkinDate}} {{checkin.checkinTime}}</text>
+    </view>
+    <view class="grid">
+      <view class="grid-item"><text class="label">时长</text><text class="value">{{checkin.duration || 0}} 分钟</text></view>
+      <view class="grid-item"><text class="label">强度</text><text class="value">{{checkin.intensity}}</text></view>
+      <view class="grid-item"><text class="label">卡路里</text><text class="value">{{checkin.caloriesBurned || 0}} kcal</text></view>
+    </view>
+    <view class="mt-20" wx:if="{{checkin.content}}">
+      <text class="label">备注</text>
+      <view class="mt-10">{{checkin.content}}</view>
+    </view>
+  </view>
+  <button class="del-btn" bindtap="onDelete">删除打卡</button>
+</view>

@@ -1,0 +1,72 @@
+<view class="page">
+  <view class="header-card card">
+    <view class="flex-between">
+      <view>
+        <view class="date-text">今日打卡</view>
+        <view class="status-text" wx:if="{{todayCheckin}}">✅ 已完成</view>
+        <view class="status-text" wx:else>⏳ 待打卡</view>
+      </view>
+      <view class="checkin-btn" bindtap="openCheckin">
+        <text class="checkin-btn-text">{{todayCheckin ? '已打卡' : '点我打卡'}}</text>
+      </view>
+    </view>
+    <view class="flex-between mt-20" wx:if="{{todayCheckin}}">
+      <text>类型：{{todayCheckin.type}}</text>
+      <text>时长：{{todayCheckin.duration}}分钟</text>
+      <text>强度：{{todayCheckin.intensity}}</text>
+    </view>
+  </view>
+
+  <view class="stats-row flex">
+    <view class="stat-item" bindtap="goStats">
+      <view class="stat-num">{{stats.totalDays || 0}}</view>
+      <view class="stat-label">累计打卡</view>
+    </view>
+    <view class="stat-item" bindtap="goCalendar">
+      <view class="stat-num">{{stats.consecutiveDays || 0}}</view>
+      <view class="stat-label">连续打卡</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{stats.currentMonthDays || 0}}</view>
+      <view class="stat-label">本月打卡</view>
+    </view>
+  </view>
+
+  <view class="actions p-30">
+    <view class="action-item" bindtap="goCalendar">
+      <text class="action-icon">📅</text>
+      <text>打卡日历</text>
+    </view>
+    <view class="action-item" bindtap="goStats">
+      <text class="action-icon">📊</text>
+      <text>运动统计</text>
+    </view>
+  </view>
+
+  <view class="overlay" wx:if="{{showCheckinSheet}}" bindtap="closeSheet">
+    <view class="sheet" catchtap="preventClose">
+      <view class="sheet-title">每日打卡</view>
+      <view class="sheet-section">
+        <view class="sheet-label">运动类型</view>
+        <view class="flex flex-wrap gap-10">
+          <view class="type-item {{checkinForm.type === item ? 'active' : ''}}" wx:for="{{types}}" wx:key="*this" data-type="{{item}}" bindtap="onTypeSelect">{{item}}</view>
+        </view>
+      </view>
+      <view class="sheet-section">
+        <view class="sheet-label">运动时长：{{checkinForm.duration}} 分钟</view>
+        <slider min="10" max="120" step="5" value="{{checkinForm.duration}}" bindchange="onDurChange" activeColor="#4CAF50" block-size="20" />
+      </view>
+      <view class="sheet-section">
+        <view class="sheet-label">运动强度</view>
+        <view class="flex gap-20">
+          <view class="int-item {{checkinForm.intensity === item.value ? 'active' : ''}}" wx:for="{{intensities}}" wx:key="value" data-val="{{item.value}}" bindtap="onIntChange">{{item.label}}</view>
+        </view>
+      </view>
+      <view class="sheet-section">
+        <view class="sheet-label">备注</view>
+        <textarea placeholder="记录今天的感受..." value="{{checkinForm.content}}" bindinput="onContentInput" maxlength="200" />
+      </view>
+      <button class="submit-btn" bindtap="submitCheckin">提交打卡</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="search-bar flex">
+    <input class="search-input flex-1" placeholder="搜索食物..." value="{{keyword}}" bindinput="onSearchInput" bindconfirm="onSearch" />
+    <button class="calc-btn" bindtap="goCalculator">计算器</button>
+  </view>
+  <scroll-view scroll-x class="filter-scroll">
+    <view class="filter-item {{category === '' ? 'active' : ''}}" data-cat="" bindtap="onCategoryTap">全部</view>
+    <view class="filter-item {{category === item ? 'active' : ''}}" wx:for="{{categories}}" wx:key="*this" data-cat="{{item}}" bindtap="onCategoryTap">{{item}}</view>
+  </scroll-view>
+  <food-card wx:for="{{foods}}" wx:key="id" item="{{item}}" bind:cardtap="goDetail" />
+  <view class="load-more" wx:if="{{loading}}">加载中...</view>
+  <view class="load-more" wx:if="{{!hasMore && foods.length > 0}}">— 已经到底了 —</view>
+  <empty wx:if="{{!loading && foods.length === 0}}" icon="🍎" text="暂无食物数据" />
+</view>

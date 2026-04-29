@@ -1,0 +1,32 @@
+<view wx:if="{{video}}">
+  <video wx:if="{{video.videoUrl}}" class="video-player" src="{{video.videoUrl}}" controls show-center-play-btn="{{true}}" show-fullscreen-btn="{{true}}" autoplay="{{false}}" bindplay="onPlay" binderror="onVideoError" />
+  <view wx:else class="cover-full cover-placeholder flex-center">
+    <text class="placeholder-icon">{{video.coverUrl ? '📹' : '🎬'}}</text>
+    <text class="placeholder-text" wx:if="{{!video.videoUrl && !video.coverUrl}}">暂无视频资源</text>
+    <text class="placeholder-text" wx:elif="{{!video.videoUrl}}">暂无视频文件，请通过管理后台上传</text>
+  </view>
+  <view wx:if="{{video.coverUrl && !video.videoUrl}}" class="cover-full">
+    <image class="cover-img" src="{{video.coverUrl}}" mode="aspectFill" />
+  </view>
+  <view class="card">
+    <view class="flex-between mb-20">
+      <view class="title">{{video.title}}</view>
+      <view class="fav-btn {{favorited ? 'favorited' : ''}}" bindtap="toggleFav">
+        {{favorited ? '❤️ 已收藏' : '🤍 收藏'}}
+      </view>
+    </view>
+    <view class="flex gap-10 mb-20">
+      <text class="tag tag-primary">{{video.category}}</text>
+      <text class="tag tag-accent">{{video.difficulty}}</text>
+    </view>
+    <view class="grid">
+      <view class="grid-item"><text class="label">时长</text><text class="value">{{video.duration || 0}}秒</text></view>
+      <view class="grid-item"><text class="label">教练</text><text class="value">{{video.coach || '未知'}}</text></view>
+      <view class="grid-item"><text class="label">难度</text><text class="value">{{video.difficulty || '入门'}}</text></view>
+    </view>
+  </view>
+  <view class="card" wx:if="{{video.description}}">
+    <view class="section-title">视频描述</view>
+    <text>{{video.description}}</text>
+  </view>
+</view>

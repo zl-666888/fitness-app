@@ -1,0 +1,6 @@
+.detail-card { }
+.grid { display: flex; gap: 20rpx; }
+.grid-item { flex: 1; text-align: center; padding: 20rpx; background: #F9F9F9; border-radius: 12rpx; }
+.label { font-size: 24rpx; color: var(--text-secondary); display: block; }
+.value { font-size: 32rpx; font-weight: bold; color: var(--text); display: block; margin-top: 8rpx; }
+.del-btn { margin: 40rpx 20rpx; background: #fff; color: var(--danger); border: 1rpx solid var(--danger); border-radius: 12rpx; font-size: 28rpx; padding: 20rpx; }

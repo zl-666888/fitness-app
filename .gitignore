@@ -1,0 +1,39 @@
+# Java 后端
+server/target/
+server/*.jar
+server/uploads/
+
+# Maven
+server/.mvn/
+
+# Node / server
+server/node_modules/
+
+# Node / admin-panel
+admin-panel/node_modules/
+admin-panel/dist/
+admin-panel/.vite/
+
+# 微信小程序
+fitness_app/project.private.config.json
+
+# 开发环境配置（含数据库密码等敏感信息）
+server/src/main/resources/application-dev.yml
+
+# IDE
+.idea/
+*.iml
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temp / sensitive files
+*.swp
+*.bak
+*.tmp
+cookie.txt

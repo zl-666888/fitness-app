@@ -1,0 +1,11 @@
+<view class="page">
+  <checkin-card 
+    wx:for="{{feedList}}" wx:key="checkinId" 
+    item="{{item}}" 
+    bind:like="onLike"
+    bind:comment="onComment"
+  />
+  <view class="load-more" wx:if="{{loading}}">加载中...</view>
+  <view class="load-more" wx:if="{{!hasMore && feedList.length > 0}}">— 已经到底了 —</view>
+  <empty wx:if="{{!loading && feedList.length === 0}}" icon="🏃" text="还没有人打卡，快去打卡吧" />
+</view>

@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/auth/login/login",
+    "pages/auth/register/register",
+    "pages/checkin/index/index",
+    "pages/checkin/detail/detail",
+    "pages/checkin/calendar/calendar",
+    "pages/feed/index/index",
+    "pages/video/index/index",
+    "pages/video/detail/detail",
+    "pages/food/index/index",
+    "pages/food/detail/detail",
+    "pages/food/calculator/calculator",
+    "pages/profile/index/index",
+    "pages/profile/info/info",
+    "pages/profile/goal/goal",
+    "pages/profile/stats/stats",
+    "pages/profile/favorites/favorites",
+    "pages/profile/following/following",
+    "pages/profile/settings/settings"
+  ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/checkin/index/index",
+        "iconPath": "images/tabbar/Home.png",
+        "selectedIconPath": "images/tabbar/Home.png",
+        "text": "打卡"
+      },
+      {
+        "pagePath": "pages/feed/index/index",
+        "iconPath": "images/tabbar/pangge.png",
+        "selectedIconPath": "images/tabbar/pangge.png",
+        "text": "广场"
+      },
+      {
+        "pagePath": "pages/video/index/index",
+        "iconPath": "images/tabbar/vedio.png",
+        "selectedIconPath": "images/tabbar/vedio.png",
+        "text": "视频"
+      },
+      {
+        "pagePath": "pages/food/index/index",
+        "iconPath": "images/tabbar/bowl-fill.png",
+        "selectedIconPath": "images/tabbar/bowl-fill.png",
+        "text": "食物"
+      },
+      {
+        "pagePath": "pages/profile/index/index",
+        "iconPath": "images/tabbar/my.png",
+        "selectedIconPath": "images/tabbar/my.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "健身打卡",
+    "navigationBarBackgroundColor": "#4CAF50",
+    "backgroundColor": "#F5F5F5"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
